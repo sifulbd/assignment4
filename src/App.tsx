@@ -5,18 +5,18 @@ function App() {
     const dispatch = useAppDispatch();
     const count = useAppSelector((state) => state.counter);
 
-    const hanndleIncrement = () => {
-        dispatch(increment());
+    const hanndleIncrement = (amount: number) => {
+        dispatch(increment(amount));
     };
     const hanndleDecrement = () => {
         dispatch(decrement());
     };
-    console.log(count);
     return (
         <div>
             <h2>Ola, welcome</h2>
-            <span>{count.count}</span>
-            <button onClick={hanndleIncrement}>Increment</button>
+            <span>{count.count}</span> <br />
+            <button onClick={() => hanndleIncrement(1)}>Increment</button>
+            <button onClick={() => hanndleIncrement(5)}>Increment by 5</button>
             <button onClick={hanndleDecrement}>Decrement</button>
         </div>
     );
